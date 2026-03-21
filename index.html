@@ -18,21 +18,7 @@
             color: #fff;
             overflow-x: hidden;
         }
-
-        .bg-noise {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Noisy_Texture.png');
-            opacity: 0.05;
-            pointer-events: none;
-            z-index: 5;
-            animation: noise-anim 0.2s infinite alternate;
-        }
-        @keyframes noise-anim {
-            0% { transform: translate(0,0); }
-            100% { transform: translate(1%, 1%); }
-        }
-
+        
         .hero {
             position: relative;
             height: 100vh;
@@ -41,7 +27,7 @@
             background: url('bg4.jpg') no-repeat center right;
             background-size: contain;
         }
-
+        
         .hero::before {
             content: '';
             position: absolute;
@@ -96,7 +82,7 @@
             animation: blink 0.7s infinite;
             vertical-align: middle;
         }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        
 
         .button-group {
             display: flex;
@@ -210,15 +196,13 @@
 
         .modal-content h2 { font-weight: 600; text-transform: uppercase; margin-bottom: 20px; font-size: 18px; color: #fff; text-align: center; }
 
-        /* Чат-приветствие */
         #welcome-chat-area { 
             display: flex; 
             flex-direction: column; 
             align-items: flex-start; 
             width: 100%; 
         }
-
-        /* Новый стиль заголовока команды */
+        
         .team-title {
             width: 100%;
             font-size: 16px; 
@@ -235,16 +219,16 @@
             padding: 16px 20px;
             border-radius: 20px 20px 20px 5px; 
             font-size: 15px;
-            line-height: 1.5;
+            line-height: 1.50;
             color: #fff;
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(10px);
             transition: 0.5s ease;
-            margin-bottom: 20px;
-            max-width: 90%;
-            text-align: left;
+            margin-bottom: 10px;
+            max-width: 100%;
+            text-align: justify;
         }
-        .chat-bubble.show { opacity: 1; transform: translateY(0); }
+        .chat-bubble.show { opacity: 1;transform: translateY(0px);}
         
         .chat-video { 
             width: 100%; 
@@ -274,7 +258,7 @@
         .sub-option:hover { background: #fff; color: #000; }
 
         footer { position: absolute; bottom: 10px; width: 100%; display: flex; justify-content: center; z-index: 10; }
-        .tg-link { color: #fff; text-decoration: none; background: rgba(255,255,255,0.08); padding: 10px 25px; border-radius: 30px; font-weight: 600; border: 1px solid rgba(255,255,255,0.15); font-size: 10px; }
+        .tg-link { color: #fff; text-decoration: none; background: rgba(255,255,255,0.08); padding: 10px 25px; border-radius: 30px; font-weight: 600; border: 1px solid rgba(255,255,255,0.15); font-size: 13px; }
 
         @media (max-width: 768px) {
             .hero { background-position: center; justify-content: center; }
@@ -284,33 +268,35 @@
         }
         
         .advantages-section1 {
-    padding: 100px 10%;
-    position: relative;
-    z-index: 2;
-}
-
-.advantages-section1 h1 {
-    font-size: 30px;
-    margin-bottom: 60px;
-    text-align: center;
-    letter-spacing: 2px;
-}
-.advantage-item1 {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-    margin-bottom: 30px;
-    padding: 35px;
-    border-left: 3px solid #fff;
-    border-radius: 0 20px 20px 0;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.advantage-item1.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+          padding: 100px 10%;
+          position: relative;
+          z-index: 2;
+        }
+        
+        .advantages-section1 h1 {
+          font-size: 30px;
+          margin-bottom: 60px;
+          text-align: center;
+          letter-spacing: 2px;
+        }
+        
+        .advantage-item1 {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+          margin-bottom: 30px;
+          padding: 35px;
+          border-left: 3px solid #fff;
+          border-radius: 0 20px 20px 0;
+          max-width: 700px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        
+        .advantage-item1.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
 
 .advantage-item1 p1 {
     font-size: clamp(18px, 2.5vw, 24px);
@@ -418,42 +404,36 @@ footer {
 @media (max-width: 768px) {
     .news-section { padding: 40px 10px; }
 }
-/* Плавная прокрутка для всей страницы */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Кнопка "Наверх" */
-.back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 9999; /* Поверх всего */
+/* Кнопка "Наверх" — принудительный вывод */
+#backToTop {
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    width: 60px !important; /* Сделал чуть больше */
+    height: 60px !important;
+    background: #ffffff !important; /* Чисто белый, чтобы точно заметить */
+    color: #000000 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    z-index: 9999999 !important; /* Выше всех гор */
     opacity: 0;
     visibility: hidden;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease-in-out !important;
+    border: 2px solid #000 !important;
+    box-shadow: 0 0 20px rgba(255,255,255,0.5) !important;
 }
 
-.back-to-top.show {
-    opacity: 1;
-    visibility: visible;
+#backToTop.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
 }
 
-.back-to-top:hover {
-    background: #fff;
-    color: #000;
+#backToTop:not(.show) {
+    transform: translateY(100px) !important; /* Улетает вниз, когда не нужна */
 }
 .server-status {
     position: fixed;
@@ -474,7 +454,7 @@ html {
 .status-dot {
     width: 10px;
     height: 10px;
-    background-color: #ff4b4b; /* По умолчанию красный */
+    background-color: #00ff00; /* По умолчанию красный */
     border-radius: 50%;
     transition: all 0.5s ease;
     position: relative;
@@ -512,13 +492,11 @@ html {
 </head>
 <body>
 <!--<canvas id="canvas-particles" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>-->
-<!--
-    <div class="lang-switcher">
-        <button class="lang-btn active" onclick="changeLang('ru')">RU</button>
-        <button class="lang-btn" onclick="changeLang('en')">EN</button>
-        <button class="lang-btn" onclick="changeLang('zh')">ZH</button>
-    </div>
--->
+<div id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+        <path d="M18 15l-6-6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</div>
     <section class="hero">
         <div class="container">
             <h1>TRANSIB</h1>
@@ -529,7 +507,7 @@ html {
                 <button class="btn-main" onclick="openModal('modal-sub')" id="btn-subscribe">Оформить подписку</button>
                 <div class="auth-row">
                     <button class="btn-outline" onclick="openModal('modal-login')" id="btn-login-trigger">Вход</button>
-                    <!--<button class="btn-outline" onclick="openModal('modal-reg')">Регистрация</button>-->
+                    <button class="btn-outline" onclick="openModal('modal-reg')">Регистрация</button>
                 </div>
                 <button class="btn-secondary" onclick="openModal('modal-terms')">Пользовательское соглашение</button>
                 <button class="btn-secondary" onclick="openModal('modal-policy')">Политика конфиденциальности</button>
@@ -547,7 +525,7 @@ html {
     </div>
     
     <div class="advantage-item1">
-        <p1>Удобный бот Telegram, понятный интерфейс где нет лишнего. </p1>
+        <p1>Удобный бот Telegram, понятный интерфейс где нет лишнего.</p1>
     </div>
     
     <div class="advantage-item1">
@@ -564,24 +542,16 @@ html {
     </div>
 </section>
 </div>
-
-
     <div class="modal-overlay" id="modal-welcome">
         <div class="modal-content">
-            <div class="team-title">Команда TRANSIB</div>
+            <div class="team-title" style="position: relative; top: -10px;">Команда TRANSIB</div>
             <div id="welcome-chat-area">
-                <p id="chat-status" style="font-size: 15px; color: #444; margin-bottom: 10px;">печатает...</p>
-                <div class="chat-bubble" id="chat-msg">
-                    Привет! Это тестовая версия нашего сайта «TRANSIB». Тут могут быть присуствовать логические ошибки, поэтому выполнение некоторых функций может не произойти.  <h2></h2>
-                    Пожалуйста, не удивляйся данным ошибкам, это публичное тестирование! 
-        
+                <div class="chat-bubble" id="chat-msg" style="position: relative; top: -10px;">
+                    Привет! <h2></h2> Это тестовый сайт, поэтому здесь вы не сможете оформить подписку на наш сервис. <h2></h2>Пока пользуйтесь Telegram для управления своей подпиской.
                 </div>
-                <!--<video id="welcome-video" class="chat-video" width="100%" muted loop playsinline>
-                    <source src="2x2-ладно-похуй-абсолютно.mp4" type="video/mp4">
-                  </video>-->
                   <button class="btn-main" style="width: 100%;" onclick="forceClose()">Закрыть</button>
+                  <a href="https://t.me/transib_service_bot" class="btn-main" style="text-align: center; position: relative; top: 10px; width:100%; text-decoration: none; background-color: #3a8eff; color:#ffffff;">Telegram</a>
             </div>
-            <!--<button class="btn-main" id="btn-welcome-ok" style="display: none; width: 100%; margin-top: 10px;" onclick="startVid()">ОК</button>-->
         </div>
     </div>
 
@@ -591,57 +561,25 @@ html {
         <p style="text-align: center; font-size: 16px; line-height: 1.5; opacity: 0.8; margin-bottom: 25px;">
             Пока что нет возможности авторизации на сайте. Своей учетной записью вы можете пользоваться в Telegram.
         </p>
-        <a href="https://t.me/transib_service_bot" class="btn-main" style="text-align: center; width: 100%; text-decoration: none;">Перейти в Telegram</a>
+        <a href="https://t.me/transib_service_bot" class="btn-main" style="text-align: center; width:100%; text-decoration: none; background-color: #3a8eff; color:#ffffff;">Telegram</a>
     </div>
-
-            <!--<<div class="modal-overlay" id="modal-profile" onclick="closeByOverlay(event)">
-    <div class="modal-content wide">
-        <h2 id="profile-name">Личный кабинет</h2>
-        <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 18px; margin-bottom: 20px; text-align: left; border: 1px solid rgba(255,255,255,0.1);">
-            <p style="margin-bottom: 10px;">Статус: <strong id="sub-status" style="color: #00ff00;">Активна</strong></p>
-            <p style="margin-bottom: 10px;">До: <strong id="sub-date">27.03.2026</strong></p>
-            <p style="opacity: 0.5; font-size: 12px;">Ваша ссылка:</p>
-            <code id="sub-link" style="display: block; background: #000; padding: 10px; border-radius: 8px; font-size: 11px; word-break: break-all; border: 1px dashed #444; margin-top: 5px;">vless://uuid@node.transib.me:443</code>
-        </div>
-
-        <h3 style="font-size: 14px; margin-bottom: 10px; text-align: left; opacity: 0.7;">ИНСТРУКЦИЯ И СОФТ</h3>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-            <a href="#" style="background: #222; color: #fff; padding: 10px; border-radius: 10px; text-decoration: none; font-size: 12px;">Android</a>
-            <a href="#" style="background: #222; color: #fff; padding: 10px; border-radius: 10px; text-decoration: none; font-size: 12px;">Windows</a>
-        </div>
-
-        <button class="btn-main" style="width: 100%; margin-top: 20px; background: #611; color: #fff;" onclick="logout()">Выйти</button>
-    </div>
-</div>-->
-
-
-            <!--<div style="border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0; position: relative;">
-                <span style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: #111; padding: 0 10px; font-size: 12px; opacity: 0.4;">ИЛИ</span>
-            </div>-->
-
-                        <!--<<div class="auth-form">
-                <!--<input type="text" class="auth-input" placeholder="Логин / Почта">
-                <input type="password" class="auth-input" placeholder="Пароль">
-                <button class="btn-main" style="width: 100%;" onclick="forceClose()">Войти</button>-->
             </div>
         </div>
     </div>
 
     <div class="modal-overlay" id="modal-reg" onclick="closeByOverlay(event)">
         <div class="modal-content">
-            <h2 id="modal-reg-title">Регистрация</h2>
-            <div class="auth-form">
-                <input type="email" class="auth-input" id="reg-e" placeholder="Электронная почта">
-                <input type="password" class="auth-input" id="reg-p" placeholder="Пароль">
-                <button class="btn-main" style="width: 100%;" onclick="forceClose()">Создать аккаунт</button>
-            </div>
-            <button class="btn-main" style="width:100%; background: #222; color: #fff;" onclick="forceClose()">Закрыть</button>
+        <h2 style="font-size: 90px; margin-bottom: 10px;">Ой...</h2>
+        <p style="text-align: center; font-size: 16px; line-height: 1.5; opacity: 0.8; margin-bottom: 25px;">
+            Пока что нет возможности регистрации на сайте. Завести свою учетную запись вы можете в Telegram.
+        </p>
+        <a href="https://t.me/transib_service_bot" class="btn-main" style="text-align: center; width:100%; text-decoration: none; background-color: #3a8eff; color:#ffffff;">Telegram</a>
         </div>
     </div>
 
     <div class="modal-overlay" id="modal-sub" onclick="closeByOverlay(event)">
         <div class="modal-content wide">
-            <h2 id="modal-sub-title">Выберите срок</h2>
+            <h2 id="modal-sub-title" style="position: relative; top: -10px;">Выберите тариф подписки</h2>
             <div style="overflow-y: auto; max-height: 50vh; margin-bottom: 20px;">
                 <div class="subs-grid" id="subs-grid"></div>
             </div>
@@ -654,12 +592,12 @@ html {
         <p style="text-align: center; font-size: 16px; line-height: 1.5; opacity: 0.8; margin-bottom: 25px;">
             Пока что нет возможности оформлять подписки на сайте. Вы можете оформить подписку в Telegram.
         </p>
-        <a href="https://t.me/transib_service_bot" class="btn-main" style="text-align: center; width: 100%; text-decoration: none;">Перейти в Telegram</a>
+        <a href="https://t.me/transib_service_bot" class="btn-main" style="text-align: center; width:100%; text-decoration: none; background-color: #3a8eff; color:#ffffff;">Telegram</a>
     </div>
 </div>
     <div class="modal-overlay" id="modal-terms" onclick="closeByOverlay(event)">
         <div class="modal-content wide">
-            <h2 id="modal-terms-title">Пользовательское соглашение</h2>
+            <h2 id="modal-terms-title"style="position: relative; top: -10px;">Пользовательское соглашение</h2>
             <div id="terms-body" style="overflow-y: auto; max-height: 50vh; margin-bottom: 20px; font-size: 14px; text-align: left;"><h4>1. Общие положения</h4><h2></h2>
 1.1. Настоящее Пользовательское соглашение
 (далее — «Соглашение») регулирует порядок
@@ -794,7 +732,7 @@ html {
 
     <div class="modal-overlay" id="modal-policy" onclick="closeByOverlay(event)">
         <div class="modal-content wide">
-            <h2 id="modal-policy-title">Политика конфиденциальности</h2>
+            <h2 id="modal-policy-title"style="position: relative; top: -10px;">Политика конфиденциальности</h2>
             <div id="policy-body" style="overflow-y: auto; max-height: 50vh; margin-bottom: 20px; font-size: 14px; text-align: left;"><h4>1. Общие положения</h4><h2></h2>
 1.1. Настоящая Политика конфиденциальности
 (далее — «Политика») регулирует порядок
@@ -860,7 +798,7 @@ html {
         <h2>Новости</h2>
         <div class="news-container">
             <script async src="https://telegram.org/js/telegram-widget.js?22" 
-                data-telegram-post="transib_service/5" 
+                data-telegram-post="transib_service" 
                 data-width="100%" 
                 data-userpic="true" 
                 data-color="FFFFFF" 
@@ -874,14 +812,11 @@ html {
     <footer>
         <a href="https://t.me/transib_service_bot" class="tg-link" target="_blank">SERVICE</a>
         <h2>ㅤTelegramㅤ</h2>
-          <a href="https://t.me/transib_service_gena_bot" class="tg-link" target="_blank">SUPPORT</a>
+          <a href="https://t.me/transib_service_bot" class="tg-link" target="_blank">SUPPORT</a>
     </footer>
-<div class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
-</div>
 <div class="server-status">
     <div class="status-dot" id="statusDot"></div>
-    <span class="status-text" id="statusLabel">status: checking</span>
+    <span class="status-text" id="statusLabel">Сервера онлайн</span>
 </div>
     <script>
         let currentLang = 'ru';
@@ -889,21 +824,9 @@ html {
             ru: {
                 phrases: ["Сайт в разработке!", "100 активных клиентов уже с нами", "Оформляйте подписки в Telegram"],
                 cta: "Оформить подписку", terms: "Пользовательское соглашение", policy: "Политика конфиденциальности",
-                close: "Закрыть", subTitle: "Выберите срок", login: "Вход", reg: "Регистрация",
+                close: "Закрыть", subTitle: "Выберите тариф подписки", login: "Вход", reg: "Регистрация",
                 months: ["ОДИН МЕСЯЦ", "ДВА МЕСЯЦА", "ТРИ МЕСЯЦА", "ЧЕТЫРЕ МЕСЯЦА", "ПЯТЬ МЕСЯЦЕВ", "ШЕСТЬ МЕСЯЦЕВ"]
             },
-            en: {
-                phrases: ["get your old internet back", "restore your normal life", "who else if not us?", "always here to help"],
-                cta: "Subscribe Now", terms: "User Agreement", policy: "Privacy Policy",
-                close: "Close", subTitle: "Select Period", login: "Login", reg: "Sign Up",
-                months: ["ONE MONTH", "TWO MONTHS", "THREE MONTHS", "FOUR MONTHS", "FIVE MONTHS", "SIX MONTHS"]
-            },
-            zh: {
-                phrases: ["回归旧互联网", "重获正常生活", "舍我其谁？", "始终为您提供帮助"],
-                cta: "立即订阅", terms: "用户协议", policy: "隐私政策",
-                close: "关闭", subTitle: "选择期限", login: "登录", reg: "注册",
-                months: ["一个月", "两个月", "三个月", "四个月", "五个月", "六个月"]
-            }
         };
 
         let i = 0, j = 0, isDeleting = false, timer;
@@ -953,7 +876,6 @@ html {
             setTimeout(() => {
                 openModal('modal-welcome');
                 setTimeout(() => {
-                    document.getElementById('chat-status').style.display = 'none';
                     document.getElementById('chat-msg').classList.add('show');
                     setTimeout(() => { document.getElementById('btn-welcome-ok').style.display = 'block'; }, 1000);
                 }, 1000);
@@ -978,71 +900,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 });
-// Функция обработки авторизации Telegram
-        function onTelegramAuth(user) {
-            console.log('Данные пользователя Telegram:', user);
-            alert('Привет, ' + user.first_name + '! Ты успешно вошел (ID: ' + user.id + ')');
-            
-            // Здесь будет логика сохранения пользователя
-            forceClose(); 
-        }
-        
-        // Функция входа
-function onTelegramAuth(user) {
-    localStorage.setItem('tg_user', JSON.stringify(user));
-    updateUI(user);
-    fetchBotData(user.id); // Запрос данных о подписке
-    forceClose(); 
-}
 
-// Функция обновления интерфейса страницы
-function updateUI(user) {
-    if (!user) return;
-
-    // 1. Меняем "Вход" на "Профиль"
-    const loginBtn = document.getElementById('btn-login-trigger');
-    if (loginBtn) {
-        loginBtn.innerText = "Ваш Профиль";
-        loginBtn.onclick = () => openModal('modal-profile');
-    }
-
-    // 2. Меняем "Оформить" на "Продлить"
-    const subBtn = document.getElementById('btn-subscribe');
-    if (subBtn) {
-        subBtn.innerText = "Продлить подписку";
-    }
-
-    // 3. Ставим имя в заголовок профиля
-    document.getElementById('profile-name').innerText = user.first_name || 'Профиль';
-}
-
-// Функция получения данных из бота (заглушка для связи с бэкендом)
-function fetchBotData(userId) {
-    console.log("Запрос данных для ID:", userId);
-    
-    // В будущем тут будет fetch запрос к твоему серверу
-    // Сейчас имитируем получение данных:
-    setTimeout(() => {
-        document.getElementById('sub-status').innerText = "Активна";
-        document.getElementById('sub-status').style.color = "#00ff00";
-        document.getElementById('sub-date').innerText = "28.03.2026";
-        document.getElementById('sub-link').innerText = "vless://8db24f...example-active-key";
-    }, 800);
-}
-
-// Выход из аккаунта
-function logout() {
-    localStorage.removeItem('tg_user');
-    location.reload();
-}
-
-// Добавь это в начало window.onload, чтобы состояние сохранялось при перезагрузке
-const savedUser = localStorage.getItem('tg_user');
-if (savedUser) {
-    const user = JSON.parse(savedUser);
-    updateUI(user);
-    fetchBotData(user.id);
-}
 // --- ЛОГИКА ЧАСТИЦ (ФОН) ---
 const canvas = document.getElementById('canvas-particles');
 const ctx = canvas.getContext('2d');
@@ -1062,84 +920,6 @@ function initParticles() {
         });
     }
 }
-
-function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
-    particles.forEach(p => {
-        p.x += p.speedX;
-        p.y += p.speedY;
-
-        if (p.x > canvas.width) p.x = 0;
-        if (p.x < 0) p.x = canvas.width;
-        if (p.y > canvas.height) p.y = 0;
-        if (p.y < 0) p.y = canvas.height;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fill();
-    });
-    requestAnimationFrame(animateParticles);
-}
-
-// --- ЛОГИКА КНОПКИ "НАВЕРХ" ---
-function handleScroll() {
-    const btn = document.getElementById('backToTop');
-    if (window.pageYOffset > 100) { // Появляется после 200px скролла
-        btn.classList.add('show');
-    } else {
-        btn.classList.remove('show');
-    }
-}
-
-// Инициализация всего
-window.addEventListener('resize', initParticles);
-window.addEventListener('scroll', handleScroll);
-
-// Запуск при загрузке
-document.addEventListener('DOMContentLoaded', () => {
-    initParticles();
-    animateParticles();
-});
-
-function checkServerStatus() {
-    const dot = document.getElementById('statusDot');
-    const label = document.getElementById('statusLabel');
-    const targetUrl = 'http://mt.nesada.ru:2112';
-
-    // Создаем невидимый элемент картинки для проверки связи
-    const img = new Image();
-    
-    // Если сервер ответил (даже если 404), значит он работает
-    img.onload = function() {
-        dot.classList.add('online');
-        label.innerText = "status: online";
-    };
-
-    // Если сервер совсем не отвечает или недоступен
-    img.onerror = function() {
-        // В случае с http и портами, часто срабатывает onerror даже если сервер жив
-        // но доступ запрещен. Поэтому добавим небольшую задержку для проверки.
-        dot.classList.add('online');
-        label.innerText = "status: online";
-    };
-
-    // Устанавливаем адрес с таймштампом, чтобы не кешировалось
-    img.src = targetUrl + '/favicon.ico?t=' + Date.now();
-
-    // Тайм-аут: если за 5 секунд ничего не произошло - ставим offline
-    setTimeout(() => {
-        if (label.innerText === "status: checking") {
-            dot.classList.remove('online');
-            label.innerText = "status: offline";
-        }
-    }, 5000);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    checkServerStatus();
-    setInterval(checkServerStatus, 60000); // Проверка раз в минуту
-});
     </script>
     
 </body>
